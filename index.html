@@ -10,14 +10,20 @@
   <body>
     <style>
 
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
       .paper {
         background-image:url(./image/BG.jpg);
         background-size: cover;
         background-repeat: no-repeat;
-
+        background-position: 0 0;
         perspective-origin: top left;
         perspective: 1px;
         height: 100vh;
+        
       }
 
       .back {
@@ -25,7 +31,7 @@
         height: 150px;
         margin: auto;
         border-radius:10px;
-        margin-top: 260px;
+        margin-top: 480px;
         background-color: rgba(255,255,255,0.6);
       }
 
@@ -51,8 +57,10 @@
 
       .helloback {
         width: 260px;       
-        margin: auto;
-        margin-top: 160px;
+        margin:0 auto;
+        margin-top: 0;
+        border-top: 0;
+        padding-top: 0;
       }
 
       .green {
@@ -74,10 +82,11 @@
         font-size: 18px;
       }
 
-      .foot {
+      .footer {
         font-size: 12px;
         bottom: 0;
         position: fixed;
+        padding-left: 12px;
         background-color: rgba(255,255,255,0.6);
       }
 
@@ -98,7 +107,7 @@
         </div>
       </div>
     
-      <div class="foot">
+      <div class="footer">
        <a href="https://icp.gov.moe/?keyword=20210167" target="_blank">萌ICP备20210167号</a><br><p>since 2020 丨 SLCHY</p>
       </div>
     </div>
