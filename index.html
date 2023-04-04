@@ -27,12 +27,19 @@
         
       }
 
+      .bback {
+        width: 100%;
+        height: 100%;
+        display: flex;
+      }
+
+
       .back {
         width: 200px;
         height: 150px;
         margin: auto;
         border-radius:10px;
-        margin-top: 480px;
+        align-items: center;
         background-color: rgba(255,255,255,0.6);
       }
 
@@ -99,15 +106,17 @@
         <h1 class="hello"><span class="green">欢迎</span></h1>
       </div>
     
-      <div class="back">
-        <div style="width: 72px; height: 9px; padding-top: 12px; padding-left: 64px;">
-          <p class="pback">去往首页</p>
-        </div>
-        <div id="var" class="click">
-          <a class="link" role="button" href="https://tsuki.su" target="_blank">转跳</a>
+      <div class="bback">
+        <div class="back">
+          <div style="width: 72px; height: 9px; padding-top: 12px; padding-left: 64px;">
+            <p class="pback">去往首页</p>
+          </div>
+          <div id="var" class="click">
+            <a class="link" role="button" href="https://tsuki.su" target="_blank">转跳</a>
+          </div>
         </div>
       </div>
-    
+
       <div class="footer">
        <a href="https://icp.gov.moe/?keyword=20210167" target="_blank">萌ICP备20210167号</a><br><p>since 2020 丨 SLCHY</p>
       </div>
