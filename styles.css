@@ -1,0 +1,270 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  height: 100%;
+  overflow: hidden; /* 禁止默认的滚动行为 */
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.screen {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed; /* 使用 fixed 使屏幕位置保持不变 */
+  transition: transform 0.8s ease-in-out; /* 平滑过渡效果 */
+}
+
+.screen-1 {
+  background-color: #bbbcde;
+  width: 100%;
+  transform: translateY(0); /* 初始位置在视口内 */
+}
+
+.scroll-prompt {
+  position: absolute;
+  user-select: none;
+  bottom: 20px;
+  font-size: 18px;
+  color: #595857;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% {
+      transform: translateY(0);
+  }
+  50% {
+      transform: translateY(-20px);
+  }
+}
+
+.screen-2 {
+  background-color: #bbbcde;
+  transform: translateY(100vh); /* 初始位置在屏幕下方 */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.dialog-container {
+  width: 100%;
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.dialog {
+    background: #333;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 8px;
+    margin: 20px 15%;
+    opacity: 0;
+    transform: translateX(-100%);
+    transition: opacity 0.5s ease, transform 0.5s ease; 
+    width: 100%; 
+    max-width: 800px; 
+    height: 100%;
+
+    display: flex;
+    font-size: 200%;
+    line-height: 1.5;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+}
+
+.dialog.left {
+  background: #fff; 
+  color: #595857;
+  text-shadow: 0 0 3px #fff;
+  font-weight: bold;
+  align-self: flex-start; 
+  transform: translateX(-100%);
+
+}
+
+.dialog.right {
+  background: #9699de;
+  color: #595857;
+  text-shadow: 0 0 3px #fff;
+  font-weight: bold;
+  align-self: flex-end;
+  transform: translateX(100%);
+
+}
+
+.dialog.show {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.footer-text {
+  position: absolute;
+  text-align: center;
+  bottom: 20px; /* 距离底部 */
+  left: 50%;
+  transform: translateX(-50%); /* 居中 */
+  font-size: 12px;
+  color: #595857;
+  opacity: 0; /* 初始隐藏 */
+  transition: opacity 2s ease; /* 渐变效果 */
+}
+
+ul {
+  display: flex;
+  position: absolute;
+  user-select: none;
+  top: 15%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  padding: 0;
+  gap: 20px;
+}
+
+ul li {
+  list-style: none;
+  float: left;
+  background: #e6cde3;
+  padding: 15px 20px;
+  font-size: 60px;
+  margin: 10px;
+  color: #ffffff;
+  animation: title-animate 1s infinite alternate;
+  -webkit-perspective: 500px;
+  -ms-perspective: 500px;
+  perspective: 500px;
+}
+
+@media (max-width: 1220px) {
+  ul li {
+    font-size: 20px;
+    padding: 10px 15px;
+  }
+}
+
+@media (max-width: 780px) {
+  ul li {
+    font-size: 8px;
+    padding: 6px 10px;
+  }
+}
+
+h2 {
+  position: relative;
+  font-size: 2vw;
+  color: #bbbcde;
+  -webkit-text-stroke: 0.1vw #b8baee;
+  text-transform: uppercase;
+  pointer-events: none;
+  user-select: none;
+}
+
+h2::before {
+  content: attr(main-info);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  color: #595857;
+  -webkit-text-stroke: 0vw #bbbcde;
+  border-right: 2px solid #595857;
+  overflow: hidden;
+  animation: info-animate 5s linear forwards;
+}
+
+.jump {
+  color: #000000;
+  position: absolute;
+  width: 50%;
+  height: 4vw;
+  padding: 10px 20px; 
+  border: 1px solid #595857; 
+  border-radius: 64px; 
+  background-color: #bbbcde; 
+  display: inline-block;
+}
+
+#toRoute:hover {
+  background-color: #bec0ff;
+}
+
+.icp {
+  text-decoration: none;
+  font-size: 14px;
+  color: #867ba9;
+}
+
+@keyframes info-animate {
+  0%, 10%, 100% {
+    width: 0%;
+  }
+  70%, 100% {
+    width: 100%;
+  }
+}
+
+@keyframes title-animate {
+  from {
+    transform: scale(1) translateY(0) rotateX(0deg);
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+  }
+  to {
+    transform: scale(1.35) translateY(-25px) rotateX(45deg);
+    box-shadow: 0 30px 5px rgba(0, 0, 0, 0.1);
+  }
+}
+
+ul li:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+ul li:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+ul li:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+ul li:nth-child(4) {
+  animation-delay: 0.4s;
+}
+
+ul li:nth-child(5) {
+  animation-delay: 0.5s;
+}
+
+ul li:nth-child(6) {
+  animation-delay: 0.6s;
+}
+
+ul li:nth-child(7) {
+  animation-delay: 0.7s;
+}
+
+ul li:nth-child(8) {
+  animation-delay: 0.8s;
+}
+
+ul li:nth-child(9) {
+  animation-delay: 0.9s;
+}
+
+ul li:nth-child(10) {
+  animation-delay: 1s;
+}
