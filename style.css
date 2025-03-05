@@ -362,20 +362,13 @@ body {
   }
 }
 
-/* @media (max-width: 1225px) {
-  .left-container {
-    display: none;
+@media (max-width: 1350px) {
+  body  {
+    justify-content: right;
+    align-items: right;
   }
-  .inside-cricle {
-    display: none;
+  .container {
+    margin: 0px;
   }
-  .inside-line {
-    display: none;
-  }
-  .inside-info-top {
-    display: none;
-  }
-  .inside-info-bottom-text {
-    display: none;
-  }
-} */
+}
+
