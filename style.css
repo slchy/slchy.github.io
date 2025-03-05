@@ -8,10 +8,11 @@ body {
   overflow-y: auto;
 }
 
-.main {
-  position: relative;
-  display: flex;
-  align-items: flex-start;
+canvas {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
 }
 
 .left-container {
@@ -96,7 +97,7 @@ body {
   position: relative;
   transition: all 0.3s ease;
   z-index: 1;
-  height: 120vh;
+  height: 100%;
 
   user-select: none;
   -webkit-user-select: none;
@@ -175,8 +176,9 @@ body {
   text-shadow: 1px 1px 2px rgba(214, 214, 214, 0.3);
   top: 40px;
   left: 20px;
-  z-index: 2;
+  z-index: 1;
   position: absolute;
+  white-space: nowrap;
 }
 
 .picBox {
@@ -262,6 +264,7 @@ body {
   border-bottom-right-radius: 10px;
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
+
 }
 
 .msgBox {
@@ -319,12 +322,6 @@ body {
 .footer {
   font-size: 10px;
   color: #835894;
-  margin-top: 20px;
-  margin-bottom: 10px;
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-
 }
 
 .footerText {
@@ -356,12 +353,6 @@ body {
   font-style: normal;
 }
 
-@media (max-height: 1300px) {
-  .footer {
-    display: none;
-  }
-}
-
 @media (max-width: 1350px) {
   body  {
     justify-content: right;
@@ -371,4 +362,3 @@ body {
     margin: 0px;
   }
 }
-
