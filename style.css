@@ -96,7 +96,7 @@ body {
   position: relative;
   transition: all 0.3s ease;
   z-index: 1;
-  height: 110vh;
+  height: 120vh;
 
   user-select: none;
   -webkit-user-select: none;
