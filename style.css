@@ -292,6 +292,17 @@ canvas {
   color: #4a4b4b;
 }
 
+.subBodyInfoTitleText {
+  display: flex;
+  margin: 10px;
+  font-family: 'BabySparkle', sans-serif;
+  font-weight: bold;
+  line-height: 2;
+  font-size: 28px;
+  color: #4a4b4b;
+  white-space: nowrap;
+}
+
 .subBodyTitleTextCenter {
   justify-content: center;
   align-items: center;
