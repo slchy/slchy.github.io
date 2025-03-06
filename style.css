@@ -195,11 +195,40 @@ canvas {
   background-color: #f0f6fd;
 }
 
+.infoPicBoxContainer {
+  display: flex;
+  margin-top: auto;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+  width: 92%;
+  top: -15px;
+  position: relative;
+  margin: 0 auto;
+  background-color: #97999c;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+}
+
+.infoPicBoxInc {
+  width : 30%;
+  position: relative;
+  padding: 8px;
+  height: 440px;
+  background-color: #d7d7d7;
+  float: left;
+  margin: 10px;
+}
+
 .infoPicBox {
   width : 60%;
   position: relative;
-  margin: 0 auto;
-  top: -15px;
+  padding: 8px;
+  margin: 10px;
+  background-color: #d7d7d7;
+  float: right;
 }
 
 .centerPic {
@@ -228,22 +257,50 @@ canvas {
   color: #595857;
 }
 
-.subBodyTitle {
-  margin: 0;
-  margin-left: 0;
-  font-size: 16px;
-  color: #595857;
+.subBodyContentText {
+  display: flex;
+  margin-left: 30px;
+  margin-right: 10px;
+  font-family: 'BabySparkle', sans-serif;
+  font-weight: bold;
+  line-height: 2;
+  font-size: 24px;
+  color: #4a4b4b;
+}
+
+.subBodyInfoContentText {
+  margin-left: 30px;
+  margin-right: 5px;
+  margin-top: 10px;
+  margin-bottom: 0px;
+  font-family: 'BabySparkle', sans-serif;
+  font-weight: bold;
+  line-height: 1.2;
+  font-size: 20px;
+  color: #4a4b4b;
+  max-height: 300px;
+  overflow: auto;
 }
 
 .subBodyTitleText {
   display: flex;
-  margin: 10 auto;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+  margin: 10px;
   font-family: 'BabySparkle', sans-serif;
   font-weight: bold;
   line-height: 2;
+  font-size: 28px;
+  color: #4a4b4b;
+}
+
+.subBodyTitleTextCenter {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  display: flex;
+  margin: 10px;
+  font-family: 'BabySparkle', sans-serif;
+  font-weight: bold;
+  line-height: 1.5;
   font-size: 14px;
   color: #4a4b4b;
 }
@@ -290,7 +347,7 @@ canvas {
   width: 100%;
   left: 0px;
   padding: 0px;
-  
+  margin-bottom: 10px;
 }
 
 .title-container {
