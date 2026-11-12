@@ -3,7 +3,6 @@ let isAnimating = false;
 let disableScroll = false; // 滚轮事件禁用标识
 const scrollDisableDuration = 5000; // 禁用滚轮事件的时间（毫秒）
 
-// 检测是否为移动设备
 document.addEventListener('DOMContentLoaded', () => {
   const isMobile = () => {
       return /Mobi|Android/i.test(navigator.userAgent);
@@ -13,7 +12,6 @@ document.addEventListener('DOMContentLoaded', () => {
       window.location.href = 'https://slchy.com/archive';
   }
 });
-
 
 window.addEventListener('wheel', function (event) {
     if (isAnimating || disableScroll) return;

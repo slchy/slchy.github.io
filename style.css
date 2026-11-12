@@ -202,9 +202,9 @@ canvas {
   align-items: center;
   height: auto;
   width: 92%;
-  top: -15px;
+  top: -45px;
   position: relative;
-  margin: 0 auto;
+  margin: 45px auto;
   background-color: #97999c;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
@@ -242,6 +242,7 @@ canvas {
   height: 220px;
   width: 100%;
 }
+
 
 .bodytitle {
   margin: 0;
@@ -326,7 +327,7 @@ canvas {
   top: -60px;
   padding: 8px;
   position: relative;
-  margin: 0 auto;
+  margin: 0px auto;
   background-color: #97999c;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
