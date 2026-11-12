@@ -1,0 +1,35 @@
+name: get game data
+
+on:
+  schedule:
+    - cron: "0 16 * * *"
+  workflow_dispatch:
+
+jobs:
+  update-data:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Fetch past 7 days JSON
+        env:
+          API_KEY: ${{ secrets.API_KEY_GRID }}
+        run: |
+          now=$(date +%s)
+          seven_days_ago=$((now - 7*24*3600))
+          url="https://the-grid.org/r/export/?key=${API_KEY}&t0=${seven_days_ago}&t1=${now}&dir=asc"
+          
+          echo "Fetching data from the-grid.org..." 
+          curl -s "$url" -o data/gamedata.json
+
+      - name: Commit & Push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/gamedata.json
+          git commit -m "Update game data $(date +'%Y-%m-%d %H:%M:%S')" || echo "No changes to commit"
+          git push

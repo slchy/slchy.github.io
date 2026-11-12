@@ -1,0 +1,44 @@
+name: get 7days stats difference
+
+on:
+  push:
+    paths:
+      - 'data/gamedata.json'
+  workflow_dispatch:
+  workflow_run:
+    workflows: ["get game data"]
+    types:
+      - completed
+
+permissions:
+  contents: write
+
+jobs:
+  calculate-and-commit:
+    if: ${{ github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.x'
+
+    - name: Run logic script
+      run: python script/7days_stats_difference.py
+
+    - name: Commit and Push changes
+      run: |
+        git config --local user.email "github-actions[bot]@users.noreply.github.com"
+        git config --local user.name "github-actions[bot]"
+        
+        if [ -f "data/stats_difference.json" ] && ! git diff --quiet data/stats_difference.json; then
+          git add data/stats_difference.json
+          git commit -m "chore: auto-update stats difference [skip ci]"
+          git push
+        else
+          echo "No changes detected in stats_difference.json. Skipping commit."
+        fi

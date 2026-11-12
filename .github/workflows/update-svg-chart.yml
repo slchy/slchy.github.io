@@ -1,0 +1,42 @@
+name: Update SVG AP Chart
+
+on:
+  push:
+    paths:
+      - "data/stats_difference.json"
+  workflow_dispatch:
+  workflow_run:
+    workflows: ["get 7days stats difference"]
+    types:
+      - completed
+
+permissions:
+  contents: write
+
+jobs:
+  render:
+    if: ${{ github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Render SVG
+        run: python script/render_ap_chart.py
+
+      - name: Commit updated SVG
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          if git diff --quiet -- image/ingress_data.svg; then
+            echo "No SVG changes"
+            exit 0
+          fi
+          git add image/ingress_data.svg
+          git commit -m "Update AP chart in SVG"
+          git push
